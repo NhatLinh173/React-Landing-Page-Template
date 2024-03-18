@@ -1,29 +1,41 @@
 import React from "react";
-
+import "../assets/css/ServiceCss.css";
 export const Services = (props) => {
   return (
     <div id="services" className="text-center">
-      <div className="container">
+      <div className="container-service ">
         <div className="section-title">
-          <h2>Our Services</h2>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit duis sed
-            dapibus leonec.
-          </p>
+          <h2>Dịch Vụ Của Chúng Tôi</h2>
         </div>
         <div className="row">
-          {props.data
-            ? props.data.map((d, i) => (
-                <div key={`${d.name}-${i}`} className="col-md-4">
-                  {" "}
-                  <i className={d.icon}></i>
-                  <div className="service-desc">
-                    <h3>{d.name}</h3>
-                    <p>{d.text}</p>
-                  </div>
-                </div>
-              ))
-            : "loading"}
+          <div className="col-md-3 circular-service">
+            <h3>Giao hàng tận nhà</h3>
+            <p>
+              Khách hàng có thể đặt rau trên website của chúng tôi và sẽ được
+              nhận rau trong khoảng thời gian ngắn nhất{" "}
+            </p>
+          </div>
+          <div className="col-md-3 circular-service">
+            <h3>Dịch Vụ Chuyên Nghiệp</h3>
+            <p>
+              Chúng tôi đặt sự chuyên nghiệp lên hàng đầu đề phục vụ những điều
+              tốt nhất đến với khách hàng{" "}
+            </p>
+          </div>
+          <div className="col-md-3 circular-service">
+            <h3>Tư vấn - Chăm sóc khách hàng </h3>
+            <p>
+              Chúng tôi luôn sẵn sàng hỗ trợ và tư vấn khách hàng trong bất kỳ
+              khoản thời gian nào mà khách hàng cần chúng tôi
+            </p>
+          </div>
+          <div className="col-md-3 circular-service">
+            <h3>Tư Vấn Dinh Dưỡng</h3>
+            <p>
+              Chúng tôi có thể tư vấn khách hàng về vấn đề dinh dưỡng và các
+              chất lượng của các loại rau làm sau để tốt nhất đối với khách hàng{" "}
+            </p>
+          </div>
         </div>
       </div>
     </div>
