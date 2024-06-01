@@ -29,6 +29,11 @@ export const Header = (props) => {
   const toggleExpand = () => {
     setExpanded(!expanded);
   };
+
+  const formatPrice = (price) => {
+    return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  };
+
   const fetchProduct = async () => {
     try {
       const response = await axios.get("http://localhost:3000/product/");
@@ -264,7 +269,7 @@ export const Header = (props) => {
                   <div className="portfolio-items product-item">
                     <img src={product.image} alt="" />
                     <h3>{product.name}</h3>
-                    <p>{product.price}</p>
+                    <p>{formatPrice(product.price)} VND</p>
                     <p>{product.description}</p>
                   </div>
                 </Link>

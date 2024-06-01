@@ -3,13 +3,18 @@
     display: inline-block;
     margin-bottom: 20px;
   }
-  
+  .in-cart-message {
+    font-size: 14px; 
+    width: 150px;
+    height: 6px;
+    text-align: center;
+  }
   #search-bar {
-    padding: 10px 30px 10px 10px; /* Cung cấp padding bên phải để không chạm vào biểu tượng */
+    padding: 10px 30px 10px 10px; 
     border: 1px solid #ccc;
     border-radius: 20px;
     box-sizing: border-box;
-    width: 500px; /* Độ rộng của ô tìm kiếm */
+    width: 500px;
   }
   
   #search-button {
@@ -17,7 +22,7 @@
     right: 0;
     top: 0;
     bottom: 0;
-    width: 40px; /* Độ rộng của nút tìm kiếm */
+    width: 40px; 
     border: none;
     background: transparent;
     cursor: pointer;
@@ -27,7 +32,7 @@
     color: #213121;
   }
   
-  /* Hover style cho nút tìm kiếm */
+
   #search-button:hover i {
     color: #55f968;
   }
@@ -36,34 +41,40 @@
     padding: 15px;
     margin-bottom: 20px;
   }
+  .product-item{
+    height: 430px;
+    width: 360px;
+  }
   .portfolio-items img {
-    max-width: 100%; /* Đảm bảo hình ảnh không vượt quá kích thước của container */
-    height: auto; /* Cho phép chiều cao tự động điều chỉnh tương ứng với chiều rộng */
-    display: block; /* Đảm bảo hình ảnh hiển thị là block để áp dụng margin và padding */
+    max-width: 100%; 
+    height: auto; 
+    display: block; 
     margin: 0 auto;
     width: 300px; 
-    height: 300px;/* Canh giữa hình ảnh trong container */
+    height: 300px;
     padding: 0;
     border: 0;
   }
   .addToCard {
-    background-color: #4caf50; /* Màu nền của nút */
-    color: white; /* Màu chữ trên nút */
-    padding: 10px 20px; /* Kích thước lề của nút */
-    border: none; /* Loại bỏ đường viền của nút */
-    border-radius: 5px; /* Bo tròn các góc của nút */
-    cursor: pointer; /* Hiển thị con trỏ khi di chuột qua nút */
+    background-color: #4caf50; 
+    color: white; 
+    padding: 5px 10px; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    margin-right: 8px;
   }
   
   .addToCard:hover {
-    background-color: #45a049; /* Màu nền của nút khi di chuột qua */
+    background-color: #45a049; 
   }
   
-  .pagination {
-    margin-top: 20px;
-    text-align: center;
-  }
   
+  .button-container-category {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   .pagination button {
     background-color: #4caf50;
     color: white;
@@ -111,3 +122,4 @@
     font-size: 20px;
     margin: 30px;
   }
+  

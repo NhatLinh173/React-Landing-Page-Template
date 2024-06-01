@@ -2,9 +2,12 @@ import React, { useEffect, useState } from "react";
 import logo from "../assets/img/Logo.png";
 import { useHistory } from "react-router-dom";
 import { jwtDecode } from "jwt-decode";
+import "../assets/css/navigationCss.css";
+
 export const Navigation = (props) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userRole, setUserRole] = useState(null);
+  const [cartLength, setCartLength] = useState(0);
   const history = useHistory();
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -17,8 +20,14 @@ export const Navigation = (props) => {
         console.log("Error decoding token: ", error);
       }
     }
+    updateCartLength();
   }, []);
-  console.log("role", userRole);
+
+  const updateCartLength = () => {
+    const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+    setCartLength(cartItems.length);
+  };
+
   const handleLogout = () => {
     localStorage.removeItem("token");
     setIsLoggedIn(false);
@@ -37,7 +46,7 @@ export const Navigation = (props) => {
     height: "100%",
     objectFit: "cover",
   };
-
+  console.log("cart Length", cartLength);
   return (
     <nav id="menu" className="navbar navbar-default navbar-fixed-top">
       <div className="container">
@@ -68,11 +77,24 @@ export const Navigation = (props) => {
           id="bs-example-navbar-collapse-1"
         >
           <ul className="nav navbar-nav navbar-right">
-            <li>
-              <a href="/services" className="page-scroll">
-                Dịch Vụ
-              </a>
-            </li>
+            {userRole !== "admin" && (
+              <>
+                <li>
+                  <a href="/order-detail" className="page-scroll">
+                    Order
+                  </a>
+                </li>
+                <li>
+                  <a href="/cart" className="page-scroll">
+                    Giỏ Hàng{" "}
+                    {cartLength > 0 && (
+                      <span className="cart-counter">({cartLength})</span>
+                    )}
+                  </a>
+                </li>
+              </>
+            )}
+
             <li>
               <a href="/category" className="page-scroll">
                 Sản Phẩm
@@ -83,11 +105,7 @@ export const Navigation = (props) => {
                 Chúng Tôi
               </a>
             </li>
-            <li>
-              <a href="/cart" className="page-scroll">
-                Giỏ Hàng
-              </a>
-            </li>
+
             {isLoggedIn && (
               <li>
                 <a href="/profile" className="page-scroll">
@@ -102,6 +120,7 @@ export const Navigation = (props) => {
                 </a>
               </li>
             )}
+
             <li>
               {isLoggedIn ? (
                 <a href="/" className="page-scroll" onClick={handleLogout}>

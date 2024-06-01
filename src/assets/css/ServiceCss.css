@@ -1,32 +1,8 @@
-.service-circle {
-  width: 120px;
-  height: 120px;
-  background-color: transparent; 
-  border: 2px solid #a17d7d00;
-  color: rgb(255, 255, 255);
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0 auto 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
- display: flex;
-  justify-content: center;
-  align-items: center;
-}
 
-.service-circle svg {
-  font-size: 2rem; 
-}
 
-.service-info {
-  text-align: center;
-  padding-top: 20px; 
-}
 #services {
   padding-top: 150px; 
+  background-color: aqua;
 }
 
 .section-title {

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import emailjs from "emailjs-com";
 import React from "react";
+import axios from "axios";
 
 const initialState = {
   name: "",
@@ -14,32 +15,24 @@ export const Contact = (props) => {
     const { name, value } = e.target;
     setState((prevState) => ({ ...prevState, [name]: value }));
   };
+
   const clearState = () => setState({ ...initialState });
 
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(name, email, message);
-
-    {
-      /* replace below with your own Service ID, Template ID and Public Key from your EmailJS account */
-    }
-
-    emailjs
-      .sendForm(
-        "YOUR_SERVICE_ID",
-        "YOUR_TEMPLATE_ID",
-        e.target,
-        "YOUR_PUBLIC_KEY"
-      )
-      .then(
-        (result) => {
-          console.log(result.text);
-          clearState();
-        },
-        (error) => {
-          console.log(error.text);
-        }
-      );
+    const data = {
+      email: email,
+    };
+    axios
+      .post("http://localhost:3000/sendEmail", data)
+      .then((response) => {
+        console.log(response.data);
+        clearState();
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
   return (
     <div>

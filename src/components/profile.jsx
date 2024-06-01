@@ -8,7 +8,7 @@ export const Profile = (props) => {
     first_name: "",
     last_name: "",
     phone: "",
-
+    address: "",
     password: "",
   });
   const [isUpdating, setIsUpdating] = useState(false);
@@ -93,6 +93,14 @@ export const Profile = (props) => {
                 value={userData.phone}
                 readOnly
               />
+              <p className="text-profile">Địa Chỉ:</p>
+              <input
+                className="input-profile"
+                type="text"
+                name="address"
+                value={userData.address}
+                readOnly
+              />
               <p className="text-profile">Email:</p>
               <input
                 className="input-profile"
@@ -152,15 +160,16 @@ export const Profile = (props) => {
                   onChange={handleChange}
                 />
               </div>
-              {/* <div>
-                <label htmlFor="email">Email:</label>
+              <div>
+                <label htmlFor="email">Địa Chỉ:</label>
                 <input
                   className="input-profile"
                   type="text"
-                  name="email"
-                  value={userData.email}
+                  name="address"
+                  value={userData.address}
+                  onChange={handleChange}
                 />
-              </div> */}
+              </div>
               <div>
                 <label htmlFor="password">Password:</label>
                 <input
